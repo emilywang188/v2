@@ -6,13 +6,28 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'Work', 'About'];
 
 function ResponsiveAppBar() {
+  const navigate = useNavigate();
+
+  const handleNavigation = (page) => {
+    if (page === 'About') {
+        navigate('/about');
+    } else {
+        navigate('/');
+        setTimeout(() => {
+            document.getElementById(page.toLowerCase()).scrollIntoView({ behavior: 'smooth'})
+        }, 100);
+    }
+  };
+
+
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{
         backgroundColor: 'transparent', // Transparent app bar
         boxShadow: 'none', // Remove shadow
@@ -22,12 +37,11 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo or Icon */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -51,7 +65,8 @@ function ResponsiveAppBar() {
             }}
           >
             {pages.map((page) => (
-              <Button
+              <Button disableRipple
+                onClick={() => handleNavigation(page)}
                 key={page}
                 sx={{
                   my: 2,
@@ -62,11 +77,11 @@ function ResponsiveAppBar() {
                   fontSize: '1.5rem', // 
                   transition: 'color 0.3s ease', // Smooth color transition
                   '&:hover': {
-                    color: 'darkviolet', // Darker on hover
+                    color: '#72428a', // Darker on hover
                     backgroundColor: 'transparent', // Remove background color
                   },
                   '&:active': {
-                    color: 'indigo', // Even darker on click
+                    color: '#441e57', // Even darker on click
                     backgroundColor: 'transparent', // Remove background color
                   },
                 }}

@@ -8,7 +8,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 
 // Example image import, replace with your image path
-import MyImage from './logo.svg';
+import MyImage from './assets/self_portrait.png';
 
 export default function HomeGrid() {
   return (
@@ -42,7 +42,7 @@ export default function HomeGrid() {
                 fontSize: '1.4rem',
                 mb: 3,
                 color: 'black',
-                maxWidth: '500px', // Limit the width of the text
+                maxWidth: '400px', // Limit the width of the text
             }}
             >
             I’m a junior at Brown studying software engineering and user experience design.
@@ -90,8 +90,8 @@ export default function HomeGrid() {
               src={MyImage}
               alt="Emily"
               style={{
-                width: '80%',
-                maxWidth: '400px',
+                width: '100%',
+                maxWidth: '550px',
                 borderRadius: '50%',
                 objectFit: 'cover',
               }}
