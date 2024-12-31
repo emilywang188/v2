@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import HomeGrid from './HomeGrid';
+import WorkGrid from './WorkGrid';
 import { useEffect } from 'react';
 
 function Home() {
@@ -15,10 +16,11 @@ function Home() {
     return (
         <div>
             <Box id="home" sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <HomeGrid />
+                <HomeGrid />
             </Box>
-            <Box id="work" sx={{ height: '100vh', backgroundColor: '#e0e0e0' }}>
-                <Typography variant="h2">Work Section</Typography>
+            
+            <Box id="work" sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <WorkGrid />
             </Box>
         </div>
     );
